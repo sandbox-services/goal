@@ -2,6 +2,7 @@
 
 namespace Sandbox\Http\Controllers\Auth;
 
+use Sandbox\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
