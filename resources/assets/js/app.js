@@ -15,6 +15,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+var Bus = new Vue({});
+window.Bus = Bus; // Now we bind our event bus to window, so its global.
+
 
 if( document.querySelector('[data-vue="widget"]') ) {
     const Widget = new Vue({

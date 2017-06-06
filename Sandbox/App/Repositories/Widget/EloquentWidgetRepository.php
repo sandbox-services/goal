@@ -12,6 +12,14 @@ class EloquentWidgetRepository extends EloquentRepository implements WidgetRepos
         $this->model = $model;
     }
 
+
+    public function getAllByWeight()
+    {
+        $widgets    =   Widget::orderBy('weight', 'asc');
+
+        return $widgets->get();
+    }
+
     function add($job)
     {
         $widget             =   new Widget;

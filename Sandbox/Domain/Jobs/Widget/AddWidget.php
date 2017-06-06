@@ -10,7 +10,7 @@ class AddWidget extends Job
     public $content;
     public $weight;
 
-    function __construct($content, $weight = null)
+    function __construct($content = null, $weight = 1)
     {
         $this->content = $content;
         $this->weight = $weight;

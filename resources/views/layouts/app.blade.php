@@ -75,6 +75,18 @@
     </div>
 
     <!-- Scripts -->
+    <script>
+        @if( !Auth::check() )
+            window.Laravel = {
+        };
+        @else
+            window.Laravel = {
+            apiToken: '{{ Auth::user()->api_token }}',
+            appEnviroment: '{{ app()->environment() }}'
+        };
+        window.User = {!! Auth::user() !!}
+        @endif
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

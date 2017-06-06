@@ -2,15 +2,14 @@
     <div>
         <div class="row">
             <div class="col-md-12">
-
-
+                <div class="row">
+                    <button @click="addWidget"> Add widget</button>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="row">
-                    <button @click="addWidget"> Add widget</button>
-                </div>
+                <widget-list></widget-list>
             </div>
         </div>
     </div>
@@ -20,14 +19,9 @@
         props: [],
         data(){
             return{
-                overview: {},
-                subscription: {},
-                account: {},
-                user: {}
             }
         },
         mounted() {
-
         },
         watch: {
 
@@ -40,12 +34,12 @@
                 let vm = this
 
                 let data = {
-                    contactId: this.contact.id
+
                 }
 
-                this.axios.post('/api/v1/widget/add', data)
+                axios.post('/api/v1/widget/add', data)
                 .then( response => {
-
+                    Bus.$emit('widgetWasAdded', response);
                 })
                 .catch( error => {
 
@@ -53,7 +47,7 @@
             }
         },
         components:{
-
+            'widget-list':                             require('./components/widget-list.vue'),
         }
     }
 </script>

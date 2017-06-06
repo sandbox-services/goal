@@ -5,8 +5,12 @@ namespace Sandbox\Http\Api\v1\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
 use Sandbox\Events\Widget\WidgetWasAdded;
+use Sandbox\Events\Widget\WidgetWasDeleted;
+use Sandbox\Events\Widget\WidgetWasEdited;
 use Sandbox\Http\Controllers\Controller;
 use Sandbox\Jobs\Widget\AddWidget;
+use Sandbox\Jobs\Widget\DeleteWidget;
+use Sandbox\Jobs\Widget\EditWidget;
 use Sandbox\Repositories\Widget\WidgetRepository;
 use Sandbox\Widget;
 
@@ -33,7 +37,7 @@ class WidgetController extends Controller
      */
     public function index(Request $request)
     {
-        $widgets = $this->widget->getAll();
+        $widgets = $this->widget->getAllByWeight();
 
         return compact('widgets');
     }
@@ -46,10 +50,26 @@ class WidgetController extends Controller
      */
     public function add(Request $request)
     {
-        $widget = $this->dispatchFrom(AddWidget::class, $request);
+        $widget =   $this->dispatchFrom(AddWidget::class, $request);
         Event::fire(new WidgetWasAdded($widget->id, $request->all()));
 
-        return compact($widget);
+        return compact('widget');
+    }
+
+    public function edit(Request $request)
+    {
+        $widget =   $this->dispatchFrom(EditWidget::class, $request);
+        event(new WidgetWasEdited($widget->id, $request));
+
+        return compact('widget');
+    }
+
+    public function delete(Request $request)
+    {
+        $widget = $this->dispatchFrom(DeleteWidget::class, $request);
+        event(new WidgetWasDeleted($widget->id, $request));
+
+        return compact('widget');
     }
 
 
