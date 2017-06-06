@@ -5,7 +5,7 @@ namespace Sandbox\Jobs\Widget;
 use Sandbox\Repositories\Widget\WidgetRepository;
 use Sandbox\Jobs\Job;
 
-class CreateWidget extends Job
+class AddWidget extends Job
 {
     public $content;
     public $weight;

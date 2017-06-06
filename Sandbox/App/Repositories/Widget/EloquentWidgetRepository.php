@@ -5,7 +5,7 @@ namespace Sandbox\Repositories\Widget;
 use Sandbox\Repositories\EloquentRepository;
 use Sandbox\Widget;
 
-class EloquentPhoneRepository extends EloquentRepository implements WidgetRepository {
+class EloquentWidgetRepository extends EloquentRepository implements WidgetRepository {
 
     function __construct(Widget $model)
     {

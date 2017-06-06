@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/widgets',                                                                 'WidgetController@index')->middleware('auth:api');
+Route::post('/widget/add',                                                              'WidgetController@add')->middleware('auth:api');
+Route::post('/widget/edit',                                                             'WidgetController@edit')->middleware('auth:api');
+Route::post('/widget/delete',                                                           'WidgetController@delete')->middleware('auth:api');
