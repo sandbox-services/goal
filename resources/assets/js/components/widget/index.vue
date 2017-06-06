@@ -2,9 +2,7 @@
     <div>
         <div class="row">
             <div class="col-md-12">
-                <div class="row">
-                    <button @click="addWidget" class="btn btn-success btn-xxl">Add new widget</button>
-                </div>
+                <button @click="addWidget" class="btn btn-success btn-xxl">Add new widget</button>
             </div>
         </div>
         <br>

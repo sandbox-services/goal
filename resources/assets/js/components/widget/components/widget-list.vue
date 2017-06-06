@@ -1,8 +1,13 @@
 <template>
     <div>
-        <div  v-if="widgets.length > 0" class="list-group">
+        <div v-if="widgets.length > 0" class="list-group">
             <div v-for="widget in widgets" class="list-group-item list-group-item-action flex-column align-items-start p-0">
                 <widget-overview v-if="widgets" :widget="widget"></widget-overview>
+            </div>
+        </div>
+        <div v-else class="list-group">
+            <div class="list-group-item list-group-item-action flex-column align-items-start p-0">
+                No widgets found. Please add a widget to continue.
             </div>
         </div>
     </div>
