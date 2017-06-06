@@ -11,7 +11,7 @@
                     You are logged in!
                 </div>
             </div>
-            <br><br> Vue below <br><br>
+            <br>
             <div data-vue="widget">
                 <widget></widget>
             </div>
