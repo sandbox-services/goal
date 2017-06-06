@@ -58,7 +58,12 @@
                             this.widgets.push.apply(this.widgets, response.data.widgets)
                         })
 
-
+                        console.log('fetch completed')
+                    }
+                    else
+                    {
+                        this.widgets = []
+                        console.log('fetch completed but empty results.')
                     }
                 });
             },
