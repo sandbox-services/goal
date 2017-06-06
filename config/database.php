@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,12 +55,20 @@ return [
         ],
 
         'pgsql' => [
+            'read' => [
+                'host' => '127.0.0.1',
+                'database' => env('DB_READ_DATABASE', 'goal'),
+                'username' => env('DB_READ_USERNAME', 'read'),
+                'password' => env('DB_READ_PASSWORD', ''),
+            ],
+            'write' => [
+                'host' => '127.0.0.1',
+                'database' => env('DB_WRITE_DATABASE', 'goal'),
+                'username' => env('DB_WRITE_USERNAME', 'write'),
+                'password' => env('DB_WRITE_PASSWORD', ''),
+            ],
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',

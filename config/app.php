@@ -170,12 +170,16 @@ return [
 
         /*
          * Application Service Providers...
+         *
+         * Lets abstract these into our sandbox, again this helps prevents breaking changes when migrating.
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+
+        Sandbox\Providers\AppServiceProvider::class,
+        Sandbox\Providers\AuthServiceProvider::class,
+        Sandbox\Providers\BroadcastServiceProvider::class,
+        Sandbox\Providers\EventServiceProvider::class,
+        Sandbox\Providers\RepositoryServiceProvider::class,
+        Sandbox\Providers\RouteServiceProvider::class,
 
     ],
 

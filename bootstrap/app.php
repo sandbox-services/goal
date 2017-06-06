@@ -26,19 +26,31 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| Sandbox Abstraction layer
+|--------------------------------------------------------------------------
+|
+| Next, we abstract the application from the framework, this practice is the
+| first step in ensuring that you can easily migrate between major revisions
+| of laravel without fear of breaking your application.
+|
+*/
+
+
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    App\Http\Kernel::class
+    Sandbox\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
+    Sandbox\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
+    Sandbox\Exceptions\Handler::class
 );
 
 /*

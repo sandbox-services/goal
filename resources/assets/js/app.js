@@ -15,8 +15,12 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
+if( document.querySelector('[data-vue="widget"]') ) {
+    const Widget = new Vue({
+        el: '[data-vue="widget"]',
+        components: {
+            'widget': require('./components/widget/index.vue')
+        }
+    });
+}
